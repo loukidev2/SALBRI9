@@ -1,0 +1,92 @@
+/* 🌞 الوضع العادي */
+body {
+  background-color: #ffffff;
+  color: #222;
+  font-family: "Cairo", sans-serif;
+  transition: background 0.3s, color 0.3s;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #25D366;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+section {
+  padding: 20px;
+  text-align: center;
+}
+
+footer {
+  background-color: #25D366;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+button#toggleTheme {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #25D366;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 999;
+}
+
+button#toggleTheme:hover {
+  background: #128C7E;
+}
+
+/* 🌙 الوضع الليلي */
+body.dark {
+  background-color: #0e0e0e;
+  color: #f1f1f1;
+}
+
+body.dark header,
+body.dark footer {
+  background-color: #111;
+  color: #25D366;
+}
+
+body.dark nav a {
+  color: #25D366;
+}
+
+body.dark button#toggleTheme {
+  background: #128C7E;
+  color: #fff;
+}
+
+/* معرض الصور */
+.image-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.image-box img {
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.image-box img:hover {
+  transform: scale(1.05);
+}

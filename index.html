@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DEV SLABRI9</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* 🌞 الوضع العادي */
+    body {
+      background-color: #ffffff;
+      color: #222;
+      font-family: "Cairo", sans-serif;
+      transition: background 0.3s, color 0.3s;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #25D366;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #25D366;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+
+    button#toggleTheme {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #25D366;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+      z-index: 999;
+    }
+    button#toggleTheme:hover {
+      background: #128C7E;
+    }
+
+    /* 🌙 الوضع الليلي */
+    body.dark {
+      background-color: #0e0e0e;
+      color: #f1f1f1;
+    }
+
+    body.dark header,
+    body.dark footer {
+      background-color: #111;
+      color: #25D366;
+    }
+
+    body.dark nav a {
+      color: #25D366;
+    }
+
+    body.dark button#toggleTheme {
+      background: #128C7E;
+      color: #fff;
+    }
+
+    .image-box {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .image-box img {
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+
+    .image-box img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>DEV SLABRI9</h1>
+    <nav>
+      <a href="#about">من أنا</a>
+      <a href="#services">الخدمات</a>
+      <a href="#contact">اتصل بي</a>
+    </nav>
+  </header>
+
+  <!-- زر تبديل الوضع -->
+  <button id="toggleTheme">🌙 تبديل الوضع</button>
+
+  <section id="about">
+    <h2>من أنا</h2>
+    <p>أنا مطور ويب شغوف بتصميم مواقع جميلة وسريعة.</p>
+  </section>
+
+  <section id="services">
+    <h2>الخدمات</h2>
+    <ul style="list-style:none; padding:0;">
+      <li>تصميم مواقع</li>
+      <li>برمجة تطبيقات ويب</li>
+      <li>تحسين تجربة المستخدم</li>
+    </ul>
+  </section>
+
+  <section id="gallery">
+    <h2>معرض الأعمال</h2>
+    <div class="image-box">
+      <img src="https://cdn.discordapp.com/attachments/1410774905867472896/1430297620232011857/WhatsApp_Image_2025-10-20_a_02.21.46_225dd17c.jpg?ex=68f943f6&is=68f7f276&hm=b9ccc6d4140ab20f27a74d2eeeeab8b5344cf83bf14127f65741727f54cda1f8&" alt="مشروع تصميم" width="300" height="200">
+      <img src="https://cdn.discordapp.com/attachments/1410774905867472896/1430196420450848818/WhatsApp_Image_2025-10-20_a_02.21.44_8e3bb471.jpg?ex=68f8e5b6&is=68f79436&hm=d768248e98af23f8afe671042860b6d0ecd98129d2e25430bdee6f74a82f134c&" alt="خدمة تطوير" width="300" height="200">
+    </div>
+  </section>
+
+  <section id="contact">
+1<h2>اتصل بي</h2>
+    <a href="https://wa.me/212694503531" target="_blank" style="background-color:#25D366; color:white; padding:10px 20px; border-radius:5px; text-decoration:none; font-weight:bold;">
+      📱 تواصل عبر واتساب
+    </a>
+  </section>
+
+  <footer>
+    <p>© 2025 جميع الحقوق محفوظة</p>
+  </footer>
+
+  <script>
+    const btn = document.getElementById("toggleTheme");
+    const body = document.body;
+
+    // إذا كان مخزن الوضع الليلي، فعّله مباشرة
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark");
+      btn.textContent = "☀ الوضع الفاتح";
+    }
+
+    btn.addEventListener("click", () => {
+      body.classList.toggle("dark");
+
+      if (body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        btn.textContent = "☀ الوضع الفاتح";
+      } else {
+        localStorage.setItem("theme", "light");
+        btn.textContent = "🌙 الوضع الليلي";
+      }
+    });
+  </script>
+</body>
+</html>
